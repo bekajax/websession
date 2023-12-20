@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Аренда авто</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      form {
+        width: 300px;
+        margin: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="email"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      input[type="submit"] {
+        background-color: #2fadde;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #2fadde;
+      }
+      .menu {
+        position: relative;
+        display: inline-block;
+      }
+
+      .menu-button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-item {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        color: #333;
+      }
+
+      .dropdown-item:hover {
+        background-color: #ddd;
+      }
+
+      .menu:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- start header -->
+      <header>
+        <div class="navbar navbar-default navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+              >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index.html"
+                ><img src="img/logo.png" alt="logo"
+              /></a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="services.html">Сервисы</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="pricing.html">Аренда</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- end header -->
+      <section id="inner-headline">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2 class="pageTitle">Сервисы</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <section id="car-rental">
+          <h2>Каталог Автомобилей в Аренду</h2>
+
+          <div id="car-list"></div>
+        </section>
+      </div>
+      <section id="content">
+        <div class="container content">
+          <div class="menu">
+            <button class="menu-button">Сервисы</button>
+            <div class="dropdown-content">
+              <a
+                href="#"
+                class="dropdown-item"
+                onclick="showService('Аренда авто')"
+                >Аренда авто</a
+              >
+              <a
+                href="#"
+                class="dropdown-item"
+                onclick="showService('Автосервис')"
+                >Автосервис</a
+              >
+              <a
+                href="#"
+                class="dropdown-item"
+                onclick="showService('Перевозки')"
+                >Перевозки</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="container content">
+          <!-- Service Blcoks -->
+          <div class="row service-v1 margin-bottom-40">
+            <div class="col-md-4 md-margin-bottom-40">
+              <img class="img-responsive" src="img/service1.jpg" alt="" />
+              <h2>Аренда авто</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dolores quae porro consequatur aliquam, incidunt eius magni
+                provident, doloribus omnis minus temporibus perferendis nesciunt
+                quam repellendus nulla nemo ipsum odit corrupti consequuntur
+                possimus
+              </p>
+            </div>
+            <div class="col-md-4">
+              <img class="img-responsive" src="img/service2.jpg" alt="" />
+              <h2>Работа с клиентами</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dolores quae porro consequatur aliquam, incidunt eius magni
+                provident, doloribus omnis minus temporibus perferendis nesciunt
+                quam repellendus nulla nemo ipsum odit corrupti consequuntur
+                possimus
+              </p>
+            </div>
+            <div class="col-md-4 md-margin-bottom-40">
+              <img class="img-responsive" src="img/service3.jpg" alt="" />
+              <h2>Ответственные работники</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dolores quae porro consequatur aliquam, incidunt eius magni
+                provident, doloribus omnis minus temporibus perferendis nesciunt
+                quam repellendus nulla nemo ipsum odit corrupti consequuntur
+                possimus
+              </p>
+            </div>
+          </div>
+          <!-- End Service Blcoks -->
+
+          <hr class="margin-bottom-50" />
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <form id="rentalForm">
+            <label for="carModel">Выберите модель авто:</label>
+            <input
+              type="radio"
+              name="carModel"
+              value="ToyotaCamry"
+              id="toyotaCamry"
+            />
+            Toyota Camry
+            <input
+              type="radio"
+              name="carModel"
+              value="HyundaiTucson"
+              id="hyundaiTucson"
+            />
+            Hyundai Tucson
+
+            <label for="rentalPeriod">Выберите срок аренды:</label>
+            <input type="radio" name="rentalPeriod" value="daily" /> Дневная
+            аренда
+            <input type="radio" name="rentalPeriod" value="weekly" /> Недельная
+            аренда
+
+            <label for="name">Ваше имя:</label>
+            <input type="text" name="name" id="name" required />
+
+            <label for="email">Ваш Email:</label>
+            <input type="email" name="email" id="email" required />
+
+            <input type="submit" value="Подтвердить" />
+          </form>
+        </div>
+      </section>
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Наши Контакты</h5>
+                <address>
+                  <strong>Казахстан,Г.Семей</strong><br />
+                  Улица Абая<br />
+                  34 дом.
+                </address>
+                <p>
+                  <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br />
+                  <i class="icon-envelope-alt"></i> email@username.com
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Быстрые ссылки</h5>
+                <ul class="link-list">
+                  <li><a href="#">Последние события</a></li>
+                  <li><a href="#">Пользовательское соглашение</a></li>
+                  <li><a href="#">Политика компании</a></li>
+                  <li><a href="#">Карьера</a></li>
+                  <li><a href="#">Связаться с нами</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Последние посты</h5>
+                <ul class="link-list">
+                  <li>
+                    <a href="#"
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit.</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Pellentesque et pulvinar enim. Quisque at tempor
+                      ligula</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Natus error sit voluptatem accusantium doloremque</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Новости</h5>
+                <ul class="link-list">
+                  <li>
+                    <a href="#"
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit.</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Pellentesque et pulvinar enim. Quisque at tempor
+                      ligula</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Natus error sit voluptatem accusantium doloremque</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="sub-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="copyright">
+                  <p>
+                    <span>&copy; KazRent 2023. </span
+                    ><a href="http://webthemez.com" target="_blank"
+                      >Semey City</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <ul class="social-network">
+                  <li>
+                    <a href="#" data-placement="top" title="Facebook"
+                      ><i class="fa fa-facebook"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Twitter"
+                      ><i class="fa fa-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Linkedin"
+                      ><i class="fa fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Pinterest"
+                      ><i class="fa fa-pinterest"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Google plus"
+                      ><i class="fa fa-google-plus"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+    <script>
+      // Создаем класс Car для представления автомобилей
+      //Пункт номер 26
+      class Car {
+        constructor(model, type, price) {
+          this.model = model;
+          this.type = type;
+          this.price = price;
+        }
+
+        // Метод для получения полной информации о машине
+        getCarInfo() {
+          return `${this.type} ${this.model} - $${this.price.toFixed(2)}`;
+        }
+      }
+
+      // Создаем экземпляры класса Car
+      const car1 = new Car("Toyota Yaris", "Эконом", 10.99);
+      const car2 = new Car("Mercedes-Benz E-Class", "Премиум", 12.99);
+
+      // Получаем контейнер для списка автомобилей
+      const carListContainer = document.getElementById("car-list");
+
+      // Добавляем информацию о машинах в HTML
+      const car1Element = document.createElement("div");
+      car1Element.textContent = car1.getCarInfo();
+      carListContainer.appendChild(car1Element);
+
+      const car2Element = document.createElement("div");
+      car2Element.textContent = car2.getCarInfo();
+      carListContainer.appendChild(car2Element);
+    </script>
+    <script>
+      var rentalForm = document.getElementById("rentalForm");
+
+      rentalForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы (отправку на сервер)
+
+        // Получаем значения полей формы
+        var selectedModel = document.querySelector(
+          'input[name="carModel"]:checked'
+        );
+        var selectedPeriod = document.querySelector(
+          'input[name="rentalPeriod"]:checked'
+        );
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        // Выводим сообщение с выбранными параметрами
+        var message =
+          "Заказ на аренду авто:\nМодель: " +
+          (selectedModel ? selectedModel.value : "не выбрана") +
+          "\nСрок аренды: " +
+          (selectedPeriod ? selectedPeriod.value : "не выбран") +
+          "\nИмя: " +
+          name +
+          "\nEmail: " +
+          email;
+
+        alert(message);
+      });
+    </script>
+    <script src="/js/services.js"></script>
+  </body>
+</html>

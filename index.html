@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Аренда авто</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+
+    <!-- css -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: white;
+        z-index: 2; /* Updated z-index */
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1; /* Updated z-index */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"
+              ><img src="img/logo.png" alt="logo"
+            /></a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="index.html">Главная</a></li>
+              <li><a href="about.html">О нас</a></li>
+              <li><a href="services.html">Сервисы</a></li>
+              <li><a href="gallery.html">Галерея</a></li>
+              <li><a href="pricing.html">Аренда</a></li>
+              <li><a href="contact.html">Контакты</a></li>
+              <li><a href="blog.html">Блог</a></li>
+              <li><a href="reviews.html">Отзывы</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div id="wrapper">
+      <!-- start header -->
+
+      <section>
+        <div class="container">
+          <!-- Registration and Login buttons -->
+          <button id="registerBtn" onclick="openModal('registrationModal')">
+            Регистрация
+          </button>
+          <button id="loginBtn" onclick="openModal('loginModal')">Войти</button>
+          <button id="logoutBtn" style="display: none" onclick="logout()">
+            Выйти
+          </button>
+
+          <!-- Registration Modal -->
+          <div id="registrationModal" class="modal">
+            <h2>Registration</h2>
+            <form>
+              <label for="firstName">Имя:</label>
+              <input type="text" id="firstName" name="firstName" required />
+
+              <label for="lastName">Фамилия:</label>
+              <input type="text" id="lastName" name="lastName" required />
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="password">Пароль:</label>
+              <input type="password" id="password" name="password" required />
+
+              <button type="button" onclick="register()">Регистрация</button>
+            </form>
+            <button onclick="closeModal('registrationModal')">Закрыть</button>
+          </div>
+
+          <!-- Login Modal -->
+          <div id="loginModal" class="modal">
+            <h2>Логин</h2>
+            <form>
+              <label for="loginEmail">Email:</label>
+              <input type="email" id="loginEmail" name="loginEmail" required />
+
+              <label for="loginPassword">Пароль:</label>
+              <input
+                type="password"
+                id="loginPassword"
+                name="loginPassword"
+                required
+              />
+
+              <button type="button" onclick="login()">Войти</button>
+            </form>
+            <button onclick="closeModal('loginModal')">Закрыть</button>
+          </div>
+
+          <!-- Overlay -->
+          <div
+            id="overlay"
+            class="overlay"
+            onclick="closeModal('registrationModal'); closeModal('loginModal')"
+          ></div>
+        </div>
+      </section>
+      <section class="callaction">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="img/people.png" alt="" width="100%" />
+            </div>
+            <div class="col-md-8">
+              <div>
+                <h1>
+                  <span
+                    >Здравствуйте,<span class="blue_text"
+                      >Добро пожаловать!!</span
+                    ></span
+                  >
+                </h1>
+                <span
+                  class="clear spacer_responsive_hide_mobile"
+                  style="height: 13px; display: block"
+                ></span>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dolores quae porro consequatur aliquam, incidunt eius magni
+                  provident, doloribus omnis minus temporibus perferendis
+                  nesciunt quam repellendus nulla nemo ipsum odit corrupti
+                  consequuntur possimus, vero mollitia velit ad consectetur.
+                  Alias, laborum excepturi nihil autem nemo numquam, ipsa
+                  architecto non, magni consequuntur quam.
+                </p>
+                <p>
+                  Perferendis nesciunt quam repellendus nulla nemo ipsum odit
+                  corrupti consequuntur possimus, vero mollitia quam repellendus
+                  nulla nemo ipsum odit corrupti consequuntur possimus, vero
+                  mollitia velit ad consectetur.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Наши Контакты</h5>
+                <address>
+                  <strong>Казахстан,Г.Семей</strong><br />
+                  Улица Абая<br />
+                  34 дом.
+                </address>
+                <p>
+                  <i class="icon-phone"></i> (123) 456-789 - 1255-12584 <br />
+                  <i class="icon-envelope-alt"></i> email@username.com
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Быстрые ссылки</h5>
+                <ul class="link-list">
+                  <li><a href="#">Последние события</a></li>
+                  <li><a href="#">Пользовательское соглашение</a></li>
+                  <li><a href="#">Политика компании</a></li>
+                  <li><a href="#">Карьера</a></li>
+                  <li><a href="#">Связаться с нами</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Последние посты</h5>
+                <ul class="link-list">
+                  <li>
+                    <a href="#"
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit.</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Pellentesque et pulvinar enim. Quisque at tempor
+                      ligula</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Natus error sit voluptatem accusantium doloremque</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="widget">
+                <h5 class="widgetheading">Новости</h5>
+                <ul class="link-list">
+                  <li>
+                    <a href="#"
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing
+                      elit.</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Pellentesque et pulvinar enim. Quisque at tempor
+                      ligula</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      >Natus error sit voluptatem accusantium doloremque</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="sub-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="copyright">
+                  <p>
+                    <span>&copy; KazRent 2023. </span
+                    ><a href="http://webthemez.com" target="_blank"
+                      >Semey City</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <ul class="social-network">
+                  <li>
+                    <a href="#" data-placement="top" title="Facebook"
+                      ><i class="fa fa-facebook"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Twitter"
+                      ><i class="fa fa-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Linkedin"
+                      ><i class="fa fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Pinterest"
+                      ><i class="fa fa-pinterest"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" data-placement="top" title="Google plus"
+                      ><i class="fa fa-google-plus"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>
+      // Пример использования метода forEach и map с данными об автомобилях
+      // Пункт номер 20
+      const menuData = [
+        { name: "Toyota Yaris", type: "Эконом", price: 10.99 },
+        { name: "Mercedes-Benz E-Class", type: "Премиум", price: 12.99 },
+      ];
+      // Пункт номер 21
+      const menuContainer = document.getElementById("menu-list");
+      menuData.forEach((item) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${item.type}</td><td>${
+          item.name
+        }</td><td>${item.price.toFixed(2)}</td>`;
+        menuContainer.appendChild(row);
+      });
+
+      // Функция для изменения содержимого элемента при загрузке страницы
+      window.onload = function () {
+        changeSpecialDishOnLoad();
+      };
+
+      // Функция для изменения содержимого элемента при загрузке страницы
+      function changeSpecialDishOnLoad() {
+        const specialDishElement = document.getElementById("specialDish");
+        specialDishElement.textContent = "Toyota Yaris";
+      }
+
+      // Функция для изменения содержимого элемента при нажатии на кнопку
+      // Пункт номер 22
+      function changeSpecialDish() {
+        const specialDishElement = document.getElementById("specialDish");
+        specialDishElement.textContent = "Mercedes-Benz E-Class";
+      }
+      function addToCart(itemId, itemName, itemPrice) {
+        const cartItemsElement = document.getElementById("cart-items");
+        const newItemElement = document.createElement("li");
+        newItemElement.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+        cartItemsElement.appendChild(newItemElement);
+
+        // Обновляем итоговую сумму в корзине
+        updateTotalPrice(parseFloat(itemPrice));
+      }
+
+      function updateTotalPrice(itemPrice) {
+        const totalPriceElement = document.getElementById("total-price");
+        const currentTotal = parseFloat(
+          totalPriceElement.textContent.replace("Итоговая сумма: $", "")
+        );
+        const newTotal = currentTotal + itemPrice;
+        totalPriceElement.textContent = `Итоговая сумма: $${newTotal.toFixed(
+          2
+        )}`;
+      }
+    </script>
+    <script>
+      // Function to open the modal
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      // Function to close the modal
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
+
+      // Function for registration
+      function register() {
+        alert("Registration successful!");
+        closeModal("registrationModal");
+        updateButtons(true);
+      }
+
+      // Function for login
+      function login() {
+        alert("Login successful!");
+        closeModal("loginModal");
+        updateButtons(true);
+      }
+
+      // Function for logout
+      function logout() {
+        alert("Logout successful!");
+        updateButtons(false);
+      }
+
+      // Function to update button visibility based on login status
+      function updateButtons(isLoggedIn) {
+        const registerBtn = document.getElementById("registerBtn");
+        const loginBtn = document.getElementById("loginBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (isLoggedIn) {
+          registerBtn.style.display = "none";
+          loginBtn.style.display = "none";
+          logoutBtn.style.display = "block";
+        } else {
+          registerBtn.style.display = "block";
+          loginBtn.style.display = "block";
+          logoutBtn.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
